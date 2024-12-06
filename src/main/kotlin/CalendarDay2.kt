@@ -4,9 +4,9 @@ import kotlin.math.abs
 import kotlin.math.sign
 
 fun calendarDay2() {
-    val csvFile = {}.javaClass.getResource("/calendar_day_2.txt")!!.readText()
-    var safeReports = 0
-    csvFile.lines().forEach { line ->
+    val reportsLevels = {}.javaClass.getResource("/calendar_day_2.txt")!!.readText()
+    var numberOfSafeReports = 0
+    reportsLevels.lines().forEach { line ->
         val levels = line.split(",").map { it.toInt() }
         val safeReport1 = levels.hasOnlyOneDirection() && levels.differenceIsAtMostThree()
         var safeReport2 = false
@@ -20,10 +20,10 @@ fun calendarDay2() {
 
         val safeReport = safeReport1 || safeReport2
         if (safeReport) {
-            safeReports++
+            numberOfSafeReports++
         }
     }
-    println(safeReports)
+    println(numberOfSafeReports)
 }
 
 private fun List<Int>.hasOnlyOneDirection(): Boolean {
