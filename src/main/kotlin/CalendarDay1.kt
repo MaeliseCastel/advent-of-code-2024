@@ -5,7 +5,7 @@ import kotlin.math.abs
 
 fun calendarDay1() {
     val jsonData = {}.javaClass.getResource("/calendar_day_1.json")!!.readText()
-    var gson = Gson()
+    val gson = Gson()
     val calendarDay1Input = gson.fromJson(jsonData, CalendarDay1Input::class.java)
 
     val locationIds1 = calendarDay1Input.locationIds1.sorted()
@@ -21,4 +21,4 @@ fun calendarDay1() {
     println("Similarity score: $similarityScore")
 }
 
-private data class CalendarDay1Input(val locationIds1: List<Int>, val locationIds2: List<Int>)
+private class CalendarDay1Input(val locationIds1: List<Int>, val locationIds2: List<Int>)
